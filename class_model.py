@@ -90,7 +90,7 @@ class my_model():
             numeric_columns = list(self.test.select_dtypes(
                 include="number").columns.values)
             scaler = joblib.load('scaler.pkl')
-            self.test[numeric_columns] = scaler.fit_transform(
+            self.test[numeric_columns] = scaler.transform(
                 self.test[numeric_columns])
         import pickle
         '''Process the unseen (test) data!'''
@@ -124,7 +124,7 @@ class my_model():
             numeric_columns = list(self.validation.select_dtypes(
                 include="number").columns.values)
             scaler = joblib.load('scaler.pkl')
-            self.validation[numeric_columns] = scaler.fit_transform(
+            self.validation[numeric_columns] = scaler.transform(
                 self.validation[numeric_columns])
         import pickle
         '''Process the unseen (test) data!'''
